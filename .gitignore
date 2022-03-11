@@ -32,7 +32,12 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-data/
+data*
+tmp.ipynb
+.DS_Store
+pretrained_models/
+separated/
+snapshot*
 
 # Installer logs
 pip-log.txt

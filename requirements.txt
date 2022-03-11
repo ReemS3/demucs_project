@@ -18,12 +18,8 @@ charset-normalizer==2.0.12
     # via requests
 decorator==4.4.2
     # via moviepy
-ffmpeg-python==0.2.0
-    # via stempeg
 flatbuffers==2.0
     # via tensorflow
-future==0.18.2
-    # via ffmpeg-python
 gast==0.5.3
     # via tensorflow
 google-auth==2.6.0
@@ -58,17 +54,13 @@ markdown==3.3.6
     # via tensorboard
 moviepy==1.0.3
     # via -r requirements.in
-musdb==0.4.0
-    # via -r requirements.in
 numpy==1.22.2
     # via
     #   h5py
     #   imageio
     #   keras-preprocessing
     #   moviepy
-    #   musdb
     #   opt-einsum
-    #   stempeg
     #   tensorboard
     #   tensorflow
 oauthlib==3.2.0
@@ -83,16 +75,12 @@ protobuf==3.19.4
     # via
     #   tensorboard
     #   tensorflow
-pyaml==21.10.1
-    # via musdb
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
     #   rsa
 pyasn1-modules==0.2.8
     # via google-auth
-pyyaml==6.0
-    # via pyaml
 requests==2.27.1
     # via
     #   moviepy
@@ -111,8 +99,6 @@ six==1.16.0
     #   grpcio
     #   keras-preprocessing
     #   tensorflow
-stempeg==0.2.3
-    # via musdb
 tensorboard==2.8.0
     # via tensorflow
 tensorboard-data-server==0.6.1
@@ -131,7 +117,6 @@ tqdm==4.63.0
     # via
     #   -r requirements.in
     #   moviepy
-    #   musdb
     #   proglog
 typing-extensions==4.1.1
     # via tensorflow
