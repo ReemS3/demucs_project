@@ -1,4 +1,3 @@
-import audioop
 from pydub import AudioSegment
 import tensorflow as tf
 import tqdm
@@ -8,14 +7,16 @@ ORIGINAL_DATASET_ROOT = "./data/musdb18hq"
 ORIGINAL_TRAIN_DATASET_ROOT = "./data/musdb18hq/train/"
 ORIGINAL_TEST_DATASET_ROOT = "./data/musdb18hq/test/"
 
+
 def decode(source_dir):
-    """Decodes sources the sources are in following order: bass, drums, other, vocals."""
+    """Decode sources the sources are in following order: bass, drums, other, vocals."""
     mixture, sources_ls = [], []
     for track in tqdm.tqdm(os.listdir(source_dir)):
         for subaudio in os.listdir(source_dir+track):
             sources_track = []
             for source in os.listdir(source_dir+track+'/'+subaudio):
-                raw_audio = tf.io.read_file(source_dir+track+'/'+subaudio+'/'+source)
+                raw_audio = tf.io.read_file(
+                    source_dir+track+'/'+subaudio+'/'+source)
                 decoded_source, _ = tf.audio.decode_wav(
                     contents=raw_audio, desired_samples=441000, desired_channels=2)
 
@@ -26,7 +27,9 @@ def decode(source_dir):
             sources_ls.append(sources_track)
     return mixture, sources_ls
 
-def reduce_length(audio_ls, name, source):
+
+def divide(audio_ls, name, source):
+    """Divide each 30-second audio into three 10-second audios."""
     if len(audio_ls) == 1:
         path = name + "1"
         make_new_folder(path)
@@ -59,8 +62,9 @@ def clip_and_convert_toWAV(source_dir, target_dir):
                 new_audio = []
                 new_audio.append(audio)
 
-            new_audio_name = target_dir + test_track + "/" 
-            reduce_length(new_audio, new_audio_name, source)
+            new_audio_name = target_dir + test_track + "/"
+            divide(new_audio, new_audio_name, source)
+
 
 def make_new_folder(folder_name):
     """Create a new folder if it does not exist"""
@@ -68,6 +72,7 @@ def make_new_folder(folder_name):
         os.mkdir(folder_name)
     except FileExistsError:
         print()
+
 
 def main():
     parent_path = "./data/musdb18_clipped"
@@ -88,7 +93,6 @@ def main():
     test_mixture, test_sources = decode(
         test_folder_path)
 
-
     train_tfds = (tf.data.Dataset.from_tensor_slices((
         tf.cast(train_mixture, tf.float32),
         tf.cast(train_sources, tf.float32))))
@@ -96,6 +100,7 @@ def main():
     test_tfds = (tf.data.Dataset.from_tensor_slices((
         tf.cast(test_mixture, tf.float32),
         tf.cast(test_sources, tf.float32))))
+
     tf.data.experimental.save(train_tfds, "./dataset_train")
     tf.data.experimental.save(test_tfds, "./dataset_test")
 

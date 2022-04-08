@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Separate my track!</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/templates/basic_search.css" />
+
+</head>
+
+<body>
+
+    <div align="center" style="color:rgb(81, 0, 128)">
+        <h1>Separate Music</h1>
+    </div>
+    <div class="big" align="center">
+        <script>
+            var song
+            function change_audio_file() {
+                var file_list = document.getElementById('audio_list');
+                file_to_play = file_list.options[file_list.selectedIndex].value;
+                var player = document.getElementById('audio_player');
+                player.src = file_to_play;
+                player.pause();
+                player.load();
+                player.play();
+            }
+        </script>
+        <form>
+            <label for="audio_list">
+                Select an audio clip to load into the player.<br>
+                <br> Then click the Play button on the player to start it.<br><br>
+            </label><br>
+
+            <select onchange="change_audio_file();" id="audio_list">
+                <option selected
+                    value="https://docs.google.com/uc?export=download&id=14n0T6hVi6sGcOwN_EQ3CeX328xg9L2m-">"Run Run
+                    Run" by Arise</option>
+                <option value="https://docs.google.com/uc?export=download&id=1k3ObIIeSvKhQIaTIvB7l3jzjZ9xjuVTG">"We'll
+                    Talk About It All
+                    Tonight by Ben Carrigan"</option>
+                <option value="https://docs.google.com/uc?export=download&id=14ll1BUuMP-n1wkDU4676rnIdr4W2M2_6">"Toynbee
+                    Suite" by Lushlife</option>
+                <option value="https://docs.google.com/uc?export=download&id=1W8t_BcgMJYZuno0O_ds82slubzedXHQA">"Shore"
+                    by Motor Tapes</option>
+                <option value="https://docs.google.com/uc?export=download&id=1Sp_5O6xbDwEdm5iGEkmqs2AWYeaeusuA">"Fire"
+                    by Night Panther</option>
+            </select>
+        </form><br>
+        <div id="audio_container">
+            <audio controls id="audio_player">
+                <div style="border: 1px solid black ; padding: 8px ;">
+                    Sorry, your browser does not support this audio player.
+                </div>
+            </audio>
+        </div>
+        <script></script>
+        <form action="{{url_for('separate')}}" method="POST">
+            <br>
+            <textarea placeholder="Enter the number of the song" name="comment"></textarea>
+            <br><br>
+            <input type="submit" name="" value="Separate" class="btn btn-info">
+        </form>
+    </div>
+
+</body>
+
+</html>

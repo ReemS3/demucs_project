@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Results of the Separation!</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/templates/basic_search.css" />
+
+</head>
+
+<body>
+
+    <div align="center" class="bg-info" style="color:rgb(81, 0, 128)">
+        <h1>Separate Music</h1>
+    </div>
+    <div class="big" align="center">
+        <form action="{{url_for('separate')}}" method="POST"></form>
+        <script>
+            var file_to_play;
+            function change_audio_file() {
+                var file_list = document.getElementById('audio_list');
+                file_to_play = file_list.options[file_list.selectedIndex].value;
+                var player = document.getElementById('audio_player');
+                player.src = file_to_play;
+                player.pause();
+                player.load();
+                player.play();
+            }
+        </script>
+        <form>
+            <label for="audio_list">
+                Select an audio clip to load into the player.<br>
+                <br> Then click the Play button on the player to start it.<br><br>
+            </label><br>
+            <select onchange="change_audio_file();" id="audio_list">
+                <option selected
+                    value="https://docs.google.com/uc?export=download&id=14n0T6hVi6sGcOwN_EQ3CeX328xg9L2m-">"Run Run
+                    Run" by Arise</option>
+                <option value="https://docs.google.com/uc?export=download&id=1k3ObIIeSvKhQIaTIvB7l3jzjZ9xjuVTG">"We'll
+                    Talk About It All
+                    Tonight by Ben Carrigan"</option>
+                <option value="https://docs.google.com/uc?export=download&id=14ll1BUuMP-n1wkDU4676rnIdr4W2M2_6">"Toynbee
+                    Suite" by Lushlife</option>
+                <option value="https://docs.google.com/uc?export=download&id=1W8t_BcgMJYZuno0O_ds82slubzedXHQA">"Shore"
+                    by Motor Tapes</option>
+                <option value="https://docs.google.com/uc?export=download&id=1Sp_5O6xbDwEdm5iGEkmqs2AWYeaeusuA">"Fire"
+                    by Night Panther</option>
+            </select>
+        </form><br>
+        <div id="audio_container">
+            <audio controls id="audio_player" src="audios/Lushlife - Toynbee Suite.wav">
+                <div style="border: 1px solid black ; padding: 8px ;">
+                    Sorry, your browser does not support this audio player.
+                </div>
+            </audio>
+        </div>
+        <form>
+            <input type="button" value="Go back!" onclick="history.back()">
+        </form>
+    </div>
+    <br><br>
+    <div style="width: 100%;">
+        <div
+            style="font-size:25px; position:absolute; font-weight: bold; left:400px; top:350px; color: rgb(22, 147, 179);">
+            Demucs
+
+            <br> <br>
+            {% if audio == 'lush' %}
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Vocals:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1DKDxKb5u-LmkHEWB7LTlnix8E_v43qe1"
+                    name="vocals" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Bass:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1TCVqRf2RO4SdpN1xjTBdVe_0b-fIKunQ"
+                    name="bass" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Other:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1MbtrdBlRZzSsXGAQxoKWLLhQrMbr4Ag5"
+                    name="other" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Drums:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1W_AuFnUdIs6QO1QPmwgauJR94ne0Hq_k"
+                    name="drums" type="audio/wav" />
+            </audio>
+
+            {% elif audio == 'run' %}
+
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Vocals:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1uCEgIm4NjMDXQwWrScypkYJcwM3xF2bn"
+                    name="vocals" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Bass:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1efGWn97cYn39F0zgAXDmjQbb3i8_vTKI"
+                    name="bass" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Other:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1YXqMk71RTA9sbwKn33JpPxf8ykRvu1rI"
+                    name="other" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Drums:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1lfVQUh2SUkwclf6oeFXob0-D0G1p-Are"
+                    name="drums" type="audio/wav" />
+            </audio>
+            {% elif audio == 'talk' %}
+
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Vocals:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1s3C_zLZcpYs-l1Gd86ThxdcmIMbOCOZU"
+                    name="vocals" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Bass:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1kwNuvsSAQzNi_qg_RcG2aBdTExN9KyVR"
+                    name="bass" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Other:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1r36rzKQQ-n5I6MNh1q86vyg1J7GzD687"
+                    name="other" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Drums:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=16LiwoYKa4ulFlz_eYsK6k1YUJEW0hNpB"
+                    name="drums" type="audio/wav" />
+            </audio>
+
+            {% elif audio == 'shore' %}
+
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Vocals:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1Kyiwg8giCR_And_cuVHPX3Hc77fI6jv1"
+                    name="vocals" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Bass:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1POaN_Q10KKAZSY6EVoOLEya9aK9ypEWC"
+                    name="bass" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Other:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1BQ6oPgHCgylAUmzPOFIUqJ-SY2odAR8J"
+                    name="other" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Drums:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1wmwpstRD6wQPiOERvsdX9Dbfj0M3yVcR"
+                    name="drums" type="audio/wav" />
+            </audio>
+
+            {% elif audio == 'fire' %}
+
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Vocals:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1DKDxKb5u-LmkHEWB7LTlnix8E_v43qe1"
+                    name="vocals" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Bass:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=16veKaQNqEMo-eZzdQ1VJmVGxkFhhI-dH"
+                    name="bass" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Other:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=15aCPL5iHkQJz0PoB0eIlHhJCixVqnswa"
+                    name="other" type="audio/wav" />
+            </audio>
+            <br>
+            <div style="font-size:18px;  left:350px; top:37px; color: rgb(34, 38, 39);"> Drums:</div>
+            <audio controls>
+                <source src="https://docs.google.com/uc?export=download&id=1uMxVJclXg7kI8iqRKvYgoGlO3T6GsMiv"
+                    name="drums" type="audio/wav" />
+            </audio>
+            {% endif %}
+
+
+        </div>
+
+        <div
+            style="font-size:25px; position:absolute; font-weight: bold; right:400px; top:350px; color: rgb(238, 1, 218);">
+            Our Model
+        </div>
+    </div>
+
+</body>
+
+</html>
