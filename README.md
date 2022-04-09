@@ -1,6 +1,6 @@
 # demucs_project
 
-This project is repulication of the [Demucs model](https://github.com/facebookresearch/demucs). But it is written in TensorFlow using Colab Pro (P100 GP with 32GB of RAM), the authors have 8 V100 GPUs with 16GB of RAM. Here is the [link](https://colab.research.google.com/drive/1ZEEqwD3nYR21x2Y0_syG_7tWOhLfZ18W?usp=sharing#scrollTo=xQig2cISsGhM&uniqifier=4) to run the notebook in ColabPro.
+This project is replication of the [Demucs model](https://github.com/facebookresearch/demucs). But it is written in TensorFlow using Colab Pro (P100 GP with 32GB of RAM), the authors have 8 V100 GPUs with 16GB of RAM. Here is the [link](https://colab.research.google.com/drive/1ZEEqwD3nYR21x2Y0_syG_7tWOhLfZ18W?usp=sharing#scrollTo=xQig2cISsGhM&uniqifier=4) to run the notebook in ColabPro.
 
 To see the visualisation of the different runs of this [project](https://wandb.ai/rfarah/demucs?workspace=user-rfarah) on W&B 
 
