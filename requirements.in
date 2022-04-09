@@ -1,3 +1,14 @@
 pydub
 tqdm
 tensorflow
+
+# For the ANNwTF Final Project notebook
+json
+numpy
+keras
+scipy
+wandb
+audiomentations
+
+# For the api
+flask
